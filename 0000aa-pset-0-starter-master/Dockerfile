@@ -16,8 +16,11 @@ ENV \
 RUN pip install pipenv
 
 WORKDIR /app
-COPY Pipfile .
-COPY Pipfile.lock .
+COPY . .
+#COPY Pipfile .
+#COPY Pipfile.lock .
 RUN pipenv install --deploy --ignore-pipfile --dev
 
 ENTRYPOINT ["pipenv", "run"]
+
+#CMD ["python -m unittest test_pset.py"]

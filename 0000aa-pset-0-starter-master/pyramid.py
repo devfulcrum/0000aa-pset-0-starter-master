@@ -17,7 +17,28 @@ def print_pyramid(rows):
 
     :param int rows: total height
     """
-    raise NotImplementedError("Called with rows={}".format(rows))
+
+    """Ensure rows is type casted as int for subsequent program use
+    """
+    rows = int(rows)
+
+    """Work through for loop for the range = rows
+    - The variable x determines the overall places to be filled
+      to the left and right of each pyramid layer
+    - The variable y determines the length of the pyramid layer 
+      from the top to the bottom
+    - Finally print the combination for each row of the pyramid
+    """
+    for i in range(rows):
+        if i == 0:
+            x = '-' * (rows - 1)
+            y = '='
+        else:
+            x = '-' * (rows - (i + 1))
+            y = '=' * ((i * 2) + 1)
+        print(x + y + x)
+    "Commented the exception as the method is now implemented above"
+    # raise NotImplementedError("Called with rows={}".format(rows))
 
 
 if __name__ == "__main__":
